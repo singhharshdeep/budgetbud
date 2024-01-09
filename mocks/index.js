@@ -3,6 +3,8 @@ import {
   MaterialIcons,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import { Image } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 
 import theme, { colors } from "../theme";
 
@@ -150,3 +152,24 @@ export const frequency = [{
   label: 'Yearly',
   value: 'yearly'
 }];
+
+export const accounts = [
+  {
+    id: 1,
+    name: 'Scotiabank',
+    balance: 9400,
+    icon: <Image style={{ width: 30, height: 30 }} source={require('../assets/scotia.png')} />
+  },
+  {
+    id: 2,
+    name: 'TD',
+    balance: 400,
+    icon: <Image style={{ width: 30, height: 30 }} source={require('../assets/td.png')} />
+  },
+  {
+    id: 3,
+    name: 'Credit Card',
+    balance: 200,
+    icon: <FontAwesome name="credit-card-alt" size={24} color={theme.colors.primary} />
+  }
+];

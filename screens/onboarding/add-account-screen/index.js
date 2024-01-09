@@ -8,15 +8,17 @@ import Input from "../../../components/util/text-input";
 import { accountTypes, banks } from "../../../mocks";
 import theme, { colors, typography } from "../../../theme";
 
-const AddAccountScreen = () => {
+const AddAccountScreen = ({ route }) => {
   const [accountType, setAccountType] = useState(null);
   const [selectedBank, setSelectedBank] = useState(1);
 
   const navigation = useNavigation();
 
+  const { type, id } = route.params;
+
   return (
     <DetailEntry
-      title="Add new account"
+      title={type === 'edit' ? "Edit Account" : "Add new account"}
       balanceLabel="Balance"
       flexValue={accountType?.value === "bank" ? 8 : 4}
       backgroundColor={theme.colors.primary}

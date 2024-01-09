@@ -7,13 +7,17 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
+import { Camera as ExpoCamera } from 'expo-camera';
 
 import theme, { colors, typography } from "../../../theme";
 import Drawer from "../../drawer";
+import Camera from "./camera";
 
 const FilePickerDrawer = ({ isOpen, toggle }) => {
   const [image, setImage] = useState(null);
   const [document, setDocument] = useState(null);
+  const [hasCameraPermission, setCameraPermission] = useState(false);
+  const [selectedMode, setSelectedMode] = useState(null);
 
   const pickImage = async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -40,7 +44,19 @@ const FilePickerDrawer = ({ isOpen, toggle }) => {
     }
   };
 
-  return (
+  const startCamera = async () => {
+    const { status } = await ExpoCamera.requestCameraPermissionsAsync();
+    if (status === 'granted') {
+      setCameraPermission(true);
+      setSelectedMode('camera');
+    } else {
+      Alert.alert("Access denied")
+    }
+  };
+
+  return hasCameraPermission && selectedMode === 'camera' ? (
+    <Camera onClose={() => setSelectedMode(null)} />
+  ) : (
     <Drawer
       isOpen={isOpen}
       toggle={toggle}
@@ -77,20 +93,24 @@ const FilePickerDrawer = ({ isOpen, toggle }) => {
               borderRadius: 20,
             }}
           >
-            <FontAwesome
-              name="camera"
-              size={36}
-              style={{ alignSelf: "center" }}
-              color={theme.colors.primary}
-            />
-            <Text
-              style={[
-                { color: theme.colors.primary },
-                typography["text-md"],
-              ]}
-            >
-              Camera
-            </Text>
+            <TouchableOpacity onPress={startCamera}>
+              <>
+                <FontAwesome
+                  name="camera"
+                  size={36}
+                  style={{ alignSelf: "center" }}
+                  color={theme.colors.primary}
+                />
+                <Text
+                  style={[
+                    { color: theme.colors.primary },
+                    typography["text-md"],
+                  ]}
+                >
+                  Camera
+                </Text>
+              </>
+            </TouchableOpacity>
           </View>
           <View
             style={{

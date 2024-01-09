@@ -3,8 +3,11 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { Entypo, Ionicons, Feather, MaterialIcons } from '@expo/vector-icons';
 
 import theme, { colors, typography } from "../../theme";
+import { useNavigation } from "@react-navigation/native";
 
 const SettingsTabs = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={{
       backgroundColor: 'white',
@@ -12,7 +15,7 @@ const SettingsTabs = () => {
       borderRadius: 20,
       paddingVertical: 16
     }}>
-      <TouchableOpacity style={{
+      <TouchableOpacity onPress={() => navigation.navigate("AccountSettings")}  style={{
         borderBottomWidth: 1,
         marginBottom: 16,
         paddingBottom: 16,
@@ -38,7 +41,7 @@ const SettingsTabs = () => {
           ]}>Account</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity style={{
+      <TouchableOpacity onPress={() => navigation.navigate("Settings")} style={{
         borderBottomWidth: 1,
         marginBottom: 16,
         paddingBottom: 16,
@@ -64,7 +67,7 @@ const SettingsTabs = () => {
           ]}>Settings</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity style={{
+      <TouchableOpacity onPress={() => navigation.navigate("ExportData")} style={{
         borderBottomWidth: 1,
         marginBottom: 16,
         paddingBottom: 16,
