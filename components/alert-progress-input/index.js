@@ -1,5 +1,5 @@
-import { View, Text, PanResponder, Animated, useWindowDimensions } from 'react-native'
-import { useEffect, useRef, useState } from 'react'
+import { View, Text, PanResponder, Animated } from 'react-native'
+import { useRef, useState } from 'react'
 import theme, { colors } from '../../theme';
 
 const AlertProgressInput = () => {
@@ -75,7 +75,7 @@ const AlertProgressInput = () => {
           justifyContent: 'center',
           alignItems: 'center',
           height: 30,
-          width: 48,
+          width: 52,
           borderWidth: 3,
           borderColor: 'white',
           borderRadius: 15,

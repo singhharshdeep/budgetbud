@@ -1,16 +1,17 @@
-import { View, Text, TouchableHighlight, TouchableOpacity, SafeAreaView } from 'react-native'
+import { View, Text, TouchableHighlight, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { MaterialIcons } from '@expo/vector-icons';
 
 import theme, { colors, typography } from '../../theme'
-import Header from './header';
 import { useNavigation } from '@react-navigation/native';
+import Header from '../../components/header';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const SettingsScreen = () => {
   const navigation = useNavigation();
 
   return (
-    <View style={{
+    <SafeAreaView style={{
       flex: 1,
       backgroundColor: 'white',
       padding: 16
@@ -104,7 +105,7 @@ const SettingsScreen = () => {
           </View>
         </View>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   )
 }
 

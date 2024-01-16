@@ -2,8 +2,9 @@ import { View, Text, TouchableOpacity, Switch } from 'react-native'
 import React, { useState } from 'react'
 import { Ionicons } from '@expo/vector-icons';
 
-import Header from '../header'
 import theme, { colors, typography } from '../../../theme'
+import Header from '../../../components/header';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const NotificationsScreen = () => {
   const [notificationSettings, setNotificationSettings] = useState({
@@ -11,7 +12,7 @@ const NotificationsScreen = () => {
     budgetAlert: true
   });
   return (
-    <View style={{
+    <SafeAreaView style={{
       flex: 1,
       padding: 16,
       backgroundColor: 'white'
@@ -57,7 +58,7 @@ const NotificationsScreen = () => {
           onValueChange={(budgetAlert) => setNotificationSettings({ ...notificationSettings, budgetAlert })}
         />
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 

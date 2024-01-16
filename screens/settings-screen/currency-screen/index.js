@@ -3,14 +3,14 @@ import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Ionicons } from '@expo/vector-icons';
 
-import Header from '../header'
 import theme, { typography } from '../../../theme'
+import Header from '../../../components/header';
 
 const CurrencyScreen = () => {
   const [selectedCurrency, setSelectedCurrency] = useState('cad');
 
   return (
-    <View style={{
+    <SafeAreaView style={{
       flex: 1,
       padding: 16,
       backgroundColor: 'white'
@@ -33,7 +33,7 @@ const CurrencyScreen = () => {
           {selectedCurrency === 'cad' && <Ionicons name="checkmark-circle" size={24} color={theme.colors.primary} />}
         </View>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   )
 }
 

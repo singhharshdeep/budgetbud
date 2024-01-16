@@ -173,3 +173,59 @@ export const accounts = [
     icon: <FontAwesome name="credit-card-alt" size={24} color={theme.colors.primary} />
   }
 ];
+
+export const budgets = [
+  {
+    id: 1,
+    limit: 1000,
+    spent: 1200,
+    category: 'shopping',
+    color: 'orange'
+  },
+  {
+    id: 2,
+    limit: 700,
+    spent: 350,
+    category: 'transportation',
+    color: 'blue'
+  }
+];
+
+export const exportTypes = [
+  {
+    id: 1,
+    label: 'All',
+    value: 'all'
+  },
+  {
+    id: 2,
+    label: 'Accounts',
+    value: 'accounts'
+  }
+];
+
+export const exportDateRange = [
+  {
+    id: 1,
+    label: 'Last 7 days',
+    value: 7
+  },
+  {
+    id: 2,
+    label: 'Last 30 days',
+    value: 30
+  }
+];
+
+export const exportFormat = [
+  {
+    id: 1,
+    label: 'CSV',
+    value: 'csv'
+  },
+  {
+    id: 2,
+    label: 'Excel',
+    value: 'xlsx'
+  }
+];

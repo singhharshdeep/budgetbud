@@ -25,6 +25,8 @@ import ThemeScreen from "./screens/settings-screen/theme-screen";
 import SecurityScreen from "./screens/settings-screen/security-screen";
 import NotificationsScreen from "./screens/settings-screen/notifications-screen";
 import AddBudgetScreen from "./screens/add-budget-screen";
+import BudgetDetailScreen from "./screens/budget-detail-screen";
+import ExportSuccessScreen from "./screens/export-success-screen";
 
 const Stack = createNativeStackNavigator();
 
@@ -57,6 +59,8 @@ export default function App() {
         <Stack.Screen name="Security" component={SecurityScreen} />
         <Stack.Screen name="Notifications" component={NotificationsScreen} />
         <Stack.Screen name="AddBudget" component={AddBudgetScreen} />
+        <Stack.Screen name="BudgetDetail" component={BudgetDetailScreen} />
+        <Stack.Screen name="ExportSuccess" component={ExportSuccessScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
